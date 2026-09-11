@@ -7,6 +7,11 @@ requires-python = ">=3.13"
 dependencies = [
     "alembic>=1.19.2",
     "fastapi>=0.141.1",
+    "langchain>=1.4.0",
+    "langchain-core>=1.6.2",
+    "langchain-openai>=1.6.1",
+    "langgraph>=1.2.11",
+    "langgraph-checkpoint-sqlite>=3.1.1",
     "myapplication>=0.1.0",
     "pydantic-settings>=2.15.0",
     "python-dotenv>=1.2.3",
@@ -17,6 +22,10 @@ dependencies = [
 [[tool.uv.index]]
 url = "https://pypi.tuna.tsinghua.edu.cn/simple"
 default = true
+
+[[tool.uv.index]]
+name = "aliyun"
+url = "https://mirrors.aliyun.com/pypi/simple"
 
 [dependency-groups]
 dev = [
