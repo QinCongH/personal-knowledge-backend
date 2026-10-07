@@ -4,7 +4,7 @@ from  langchain.messages import HumanMessage
 from tools.base import BaseTools
 from tools.default_tools import DefaultTools
 from prompts.system import DEFAULT_SYSTEM_PROMPT
-from models.llm import get_llm
+from models import get_model
 from memory.checkpoint import get_checkpoint
 class BaseAgent(object):
     model=None
@@ -13,7 +13,7 @@ class BaseAgent(object):
     base_tool=BaseTools()
     system_prompt=DEFAULT_SYSTEM_PROMPT
     def __init__(self, tools: BaseTools = None):
-        self.model = get_llm()
+        self.model = get_model("llm")
         # 创建记忆
             # 初始化checkpointer
         self.checkpointer = get_checkpoint()
@@ -43,7 +43,6 @@ class BaseAgent(object):
             "messages": [
                 HumanMessage(message)
             ],
-
         },config=config)
         for msg in res['messages']:
             msg.pretty_print()
